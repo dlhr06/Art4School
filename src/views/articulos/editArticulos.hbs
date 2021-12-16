@@ -1,0 +1,54 @@
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3> Editar Articulo</h3>
+        </div>
+        <div class="card-body">
+            <form action="/Articulos/editArticulos/{{editArticulos._id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <div class="form-group">
+                <select class="custom-select" name="TipoDocumento" id="validationDefault"  value = "{{editArticulos.TipoDocumento}}">
+                    <option selected disabled value="">Tipo de documento</option>
+                    <option>Articulo</option>
+                    <option>Poster</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="custom-select" name="Tipo" id="validationDefault"  value = "{{editArticulos.Tipo}}">
+                    <option selected disabled value="">Tipo</option>
+                    <option>JCR</option>
+                    <option>SCIMAGO</option>
+                    <option>Indice Scopus</option>
+                    <option>CONACYT</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" name= "TituloArticulo" class="form-control" placeholder="Titulo del documento o articulo" value = "{{editArticulos.TituloArticulo}}">
+            </div>
+            <div class="form-group">
+                <input type="text" name="Autores" class="form-control" placeholder="Nombre de los autores" value = "{{editArticulos.Autores}}">
+            </div>
+            <div class="form-group">
+                <input type="url" name="LinkURL" class="form-control" id="url" placeholder="https://example.com" pattern="https://.*" size="60"  value = "{{editArticulos.LinkURL}}">
+                
+            </div>
+            <div class="form-group">
+                <input type="file" name="PDF" accept="application/pdf, .doc, .docx, .odf" class="form-control" placeholder="Archivo PDF del documento" value = "{{editArticulos.PDF}}">
+            </div>
+
+                {{!-- 
+                <div class="form-group">
+                    <input type="text" name="TituloArticulo" class="form-control" placeholder="Coloca el titulo del articulo" value = "{{editArticulos.TituloArticulo}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Autor" class="form-control" placeholder="Coloca aqui el autor del articulo" value = "{{editArticulos.Autor}}">
+                </div> --}}
+
+                
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit"> Guardar </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
