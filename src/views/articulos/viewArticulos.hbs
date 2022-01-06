@@ -1,2 +1,27 @@
-<H1>Hola administrador aqui estan todos los articulos</H1>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="col-md-12 mx-auto">
+        <div class="card">
+            <div class="card header">
+                <div class="card-body">
+                    <form action="/Articulos">
+                        <div class="form-group">
+                            <object class="pdfview widthpdf" type="{{viewPDF.mimetype}}" data="{{viewPDF.path}}"></object>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

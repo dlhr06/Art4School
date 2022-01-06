@@ -1,46 +1,50 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Art4School</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/aboutUs">Acerca de Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/IniciaSesion">Sign In Colaborador</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="/IniciaSesionAdmin">Sign In Administrador</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/Registrate">Registrate</a>
-        </li>
+  <div class="container">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Art4School</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
           <li class="nav-item">
-          <a class="nav-link" href="/RegistrarAdministrador">Registra administrador</a>
-        </li>
-      </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/Articulos">Articulos</a></li>
-            <li><a class="dropdown-item" href="/Articulos/add">Agregar Articulos</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/Logout">Cerrar Sesion</a></li>
-          </ul>
-        </li>
-        </li>
-    </ul>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutUs">Acerca de Nosotros</a>
+          </li>
+
+          {{!-- <li class="nav-item">
+            <a class="nav-link" href="/RegistrarAdministrador">Registra administrador</a>
+          </li> --}}
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {{#if user}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Opciones
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/Logout">Cerrar Sesion</a></li>
+            </ul>
+          </li>
+          {{else}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Inicia Sesion
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="nav-item"> <a class="dropdown-item" href="/IniciaSesion">Usuario o administrador</a>
+              </li>
+            </ul>
+          </li>
+          {{/if}}
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
   </div>
 </nav>

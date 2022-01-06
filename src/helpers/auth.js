@@ -4,7 +4,7 @@ helpers.isAuthenticated = (req, res, next) =>{
     if (req.isAuthenticated()){
         return next ();
     }
-    req.flash ('error_msg',  ' No Autorizado para esta accion');
+    req.flash ('error_msg',  'Not Authorized');
     res.redirect('/IniciaSesion');
 };
 

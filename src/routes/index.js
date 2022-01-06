@@ -5,6 +5,8 @@ router.get('/', (req,res) => {
     res.render('index');
 });
 
+
+
 router.get('/aboutUS', (req,res) => {
     res.render('aboutUs');
 });
