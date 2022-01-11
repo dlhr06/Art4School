@@ -52,10 +52,10 @@ router.get('/Articulos', isAuthenticated, async (req, res) => { //La variable FI
     const Administradores = await Usuario.find({ "TipoUsuario": "ADMINISTRADOR" }).sort({ matricula: 'asc' }).lean();
     const EscUsuarios = await Usuario.find({ "TipoUsuario": "USUARIO" }).sort({ matricula: 'asc' }).lean();
     if (nombreUser.TipoUsuario == 'ADMINISTRADOR') {
-        res.render('admins/Reportes', { Articulos, Administradores, EscUsuarios });
+        // res.render('admins/Reportes', { Articulos, Administradores, EscUsuarios, nombreUser});
+        res.render('admins/MenuAdmin', { Articulos, Administradores, EscUsuarios, nombreUser});
     }
     if (nombreUser.TipoUsuario == 'USUARIO') { res.render('articulos/allArticulos', { findArticulos, nombreUser }); }
-
 });
 router.get('/Articulos/ViewArticulosPDF/:id', async (req, res) => {
     const viewPDF = await Articulo.findById(req.params.id).lean();

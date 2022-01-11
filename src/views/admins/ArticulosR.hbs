@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header text-center">
+         <h4>Bienvenido {{nombreUser.name}} </h4>
+          <h1>Aquí estan todos los articulos de art4School</h1>
+    </div>
+    <table class="table table-dark table-info">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Tipo de articulo</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Autores</th>
+                <th scope="col">Matricula de usuario</th>
+
+            </tr>
+        </thead>
+        <tbody class="table-light" id="letraTabla">
+            {{#each Articulos}}
+            <tr>
+                <th scope="row">{{user}}</th>
+                <td>{{TipoDocumento}}</td>
+                <td>{{Tipo}} </td>
+                <td>{{TituloArticulo}}</td>
+                <td>{{Autores}}</td>
+                <td>{{matricula}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

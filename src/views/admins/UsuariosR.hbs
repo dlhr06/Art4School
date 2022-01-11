@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header text-center">
+         <h4>Bienvenido {{nombreUser.name}} </h4>
+          <h1>Aquí estan los usuarios de art4School</h1>
+    </div>
+    <table class="table table-dark table-info">
+        <thead>
+            <tr>
+                <th scope="col">CURP</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Grado Escolar</th>
+                <th scope="col">Matricula escolar</th>
+                <th scope="col">Correo Electronico</th>
+            </tr>
+        </thead>
+        <tbody class="table-light" id="letraTabla">
+            {{#each EscUsuarios}}
+            <tr>
+                <th scope="row">{{CURP}}</th>
+                <td>{{name}}</td>
+                <td>{{apellidoP}} {{apellidoM}} </td>
+                <td>{{telefono}}</td>
+                <td>{{grado}}</td>
+                <td>{{matricula}}</td>
+                <td>{{email}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
