@@ -2,27 +2,33 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h4>Hola {{nombreUser.name}}</h1>
+                <h4>Hola <b>{{nombreUser.name}}</b> bienvenido a tu panel de usuario</h1>
                     <a href="/Articulos/add" class="btn btn-success btn-block">Agregar nuevo articulo</a>
             </div>
         </div>
     </div>
+
     {{#each findArticulos}}
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                {{!-- <h1> Hola{{user.name}}</h1> agregar un usuario para decir su nombre--}}
-                <h2>Documento</h2>
-                <h4>{{TipoDocumento}}</h4>
-                <h4>{{Tipo}}</h4>
-                <h3 class="card-title d-flex justify-content-between align-items-center">
-                    {{TituloArticulo}} <a href="/Articulos/edit/{{_id}}"> <i class="fas fa-edit"></i></a>
-                </h3>
-                <h4>{{Autores}}</h4>
-                <h4>{{LinkURL}}</h4>
-                <h4>{{originalname}}
-                    <a href="/Articulos/ViewArticulosPDF/{{_id}}"><button class="btn btn-info">Ver PDF</button></a>
-                </h4>
+    <div class="col-md-6">
+        <div class="card ">
+            <div class="card-body text-center">
+                <p>
+                <h6>Nombre del documento</h6>{{TituloArticulo}}
+                <h6>Nombre del archivo</h6>{{originalname}}
+                {{Tipo}}
+                {{Autores}}
+                <a href="{{LinkURL}}"></a>
+                </p>
+                <div class="form-group">
+                    <a href="/Articulos/ViewArticulosPDF/{{_id}}"><button class="btn btn-info  btn-block btn-sm">Ver
+                            PDF</button></a>
+
+                </div>
+                <div class="form-group">
+                    <a href="/Articulos/edit/{{_id}}"> <button class="btn btn-warning  btn-block btn-sm">Editar
+                            Articulo</button> </a>
+                </div>
+                <object class="pdfview card-img-top" type="{{mimetype}}" data="{{path}}"></object>
                 <Form action="/Articulos/delete/{{_id}}?_method=DELETE" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
                     <button class="btn btn-danger btn-block btn-sm" type="submit"> Delete</button>
@@ -30,6 +36,6 @@
             </div>
         </div>
     </div>
-
     {{/each}}
+
 </div>
