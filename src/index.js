@@ -30,8 +30,9 @@ app.engine(".hbs", exphbs.engine({
 app.set('view engine', '.hbs'); 
 //Middlewares, funciones ejecutadas antes de que lleguen al servidor 
 
-app.use(morgan('dev'));//CAMBIOS
+// app.use(morgan('dev'));//CAMBIOS
 app.use(express.urlencoded({extended:false})); //para entender formularios expecificos
+app.use(express.json());
  const Storage = multer.diskStorage({
     destination: path.join (__dirname, 'public/pdf/uploadpdf'),
     filename: (req, file, cb, filename)=>{
@@ -63,6 +64,7 @@ app.use(require('./routes/index'));
 app.use(require('./routes/articulos'));
 app.use(require('./routes/users'));
 app.use(require('./routes/admin'))
+app.use(require('./routes/resetPassword'))
 //Static Files
 
 app.use(express.static(path.join(__dirname, 'public')));

@@ -101,6 +101,27 @@ router.post("/pdf/:id/editPDF", isAuthenticated, async (req, res) => {
     res.redirect("/Articulos")
 })
 
+router.put("/ChangePassword", isAuthenticated, async(req, res) => {
+    const errors = [];
+    const { password, ConfirmPassword } = req.body;
+    console.log(req.body)
+    if (password != ConfirmPassword) {
+        errors.push({ text: "La contraseña no coninciden" });
+    };
+    if (password.length < 4) {
+        errors.push({ text: "colocar una contraseña mayor a 4 digitos" });
+    };
+    if (errors.length > 0) {
+        res.render("admin/password", { errors })
+    } else {
+        await Usuario.findByIdAndUpdate(req.user.id, { password });
+        req.flash('sucess_msg', ' Cambio de contraseña exitoso');
+        res.redirect('/Articulos');
+    }
+
+})
+
+
 router.delete('/Articulos/delete/:id', isAuthenticated, async (req, res) => {
     await Articulo.findByIdAndRemove(req.params.id);
     // if (deleteArticulos.user != req.user.id) {
